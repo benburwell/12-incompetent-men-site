@@ -1,0 +1,289 @@
+/******************************/
+/* 12 incompetent men         */
+/* LESS css file              */
+/* Copyright (c) 2011         */
+/* Ben Burwell Industries     */
+/* http://www,benburwell.com/ */
+/******************************/
+
+
+// color definitions
+@red: #e82d1d; //#9b1004; //#5a0f5e; //#4c0000;
+@green: darken(#299ce5, 10%); //#1177e8; //#2aa0eb; //#a9881b; //#50593e;
+@lightgreen: #f6cb40; //#cccc99;
+@taupe: #fff3cc; //#e5e5cf;
+@yellow: #d9942c;
+
+// size vars
+@body-font-size: 16px;
+
+// fonts
+@serif: "Crimson Text", "Times New Roman", serif;
+@sans: "Molengo", "Ludida Grande", "Arial", sans-serif;
+@display: "Arial Narrow", "Arial", sans-serif;
+@display2: "Limelight", "Times New Roman", serif;
+
+// mixins
+.emboss {
+	text-shadow: 1px 1px 1px #ffffff;
+}
+
+// reset css
+* {
+	padding: 0px;
+	margin: 0px;
+	border: none;
+}
+
+// document-wide styles
+body {
+	background: @lightgreen;
+}
+
+p {
+	padding-top: 8px;
+	padding-bottom: 8px;
+	line-height: @body-font-size+8px;
+}
+
+p.italic {
+	font-family: @serif;
+	font-style: italic;
+}
+
+blockquote {
+	font-family: @serif;
+	font-style: italic;
+	font-size: 22px;
+	//line-height: 32px;
+	width: 500px;
+	margin-left: 70px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	color: darken(@taupe, 80%);
+	.emboss;
+	background: @taupe;
+	background: -webkit-gradient(linear, left top, left bottom, from(lighten(@taupe, 5%)), to(darken(@taupe, 5%))); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  lighten(@taupe, 5%),  darken(@taupe, 5%)); /* for firefox 3.6+ */ 
+	padding: 15px;
+	border: 2px solid darken(@taupe, 60%);
+	border-radius: 8px;
+}
+
+a {
+	text-decoration: none;
+	border-style: solid;
+	border-width: 0px 0px 2px 0px;
+	padding-bottom: 2px;
+}
+
+a:hover {
+	border: none;
+}
+
+// all page content is enclosed in this DIV
+div.container {
+	
+	@container-width: 700px;
+	
+	// content-wide defaults
+	font-family: @sans;
+	width: @container-width;
+	margin-top: 15px;
+	margin-right: auto;
+	margin-bottom: 50px;
+	margin-left: auto;
+	border: 2px solid @green;
+	background-color: @taupe;
+	
+	// header region
+	header {
+		
+		text-align: center;
+		background-color: @red;
+		color: @taupe;
+		
+		
+		h1 {
+			font-family: @display2;
+			font-size: 30px;
+			padding-top: 8px;
+			padding-bottom: 4px;
+		}
+		
+		h2 {
+			font-family: @display;
+			padding-top: 4px;
+			padding-bottom: 10px;
+			font-size: 16px;
+			font-weight: 300;
+			letter-spacing: 1px;
+			
+			a {
+				color: @taupe;
+			}
+			
+		}
+		
+		nav {
+			background-color: @green;
+		}
+		
+		nav#site_nav {
+			padding-top: 10px;
+			padding-bottom: 10px;
+			a {
+				color: @lightgreen;
+				padding-top: 6px;
+				padding-bottom: 6px;
+				padding-left: 10px;
+				padding-right: 10px;
+				border-radius: 4px;
+				text-decoration: none;
+				border: none;
+			}
+			
+			a:hover {
+				background-color: darken(@green, 15%);
+			}
+			
+			a.current {
+				background-color: darken(@green, 10%);
+			}
+			
+		}
+		
+	}
+	
+	// page footer
+	footer {
+		
+		background-color: @green;
+		color: @lightgreen;
+		text-align: center;
+		font-size: 12px;
+		padding: 10px;
+		clear: both;
+		
+		nav#footer_nav {
+			@size: 16px;
+			font-size: @size;
+			padding: 8px;
+			margin-bottom: 10px;
+			
+			a {
+				margin-left: 8px;
+				margin-right: 8px;
+				border-color: @lightgreen;
+			}
+			
+			img {
+				height: @size+3px;
+			}
+		}
+		
+		a {
+			color: @lightgreen;
+			border-color: @lightgreen;
+		}
+		
+	}
+	
+	// page-specific content goes here
+	.body {
+		
+		@pad: 15px;
+		
+		&.home {
+			background-image: url(/media/img/bow.png);
+			background-repeat: no-repeat;
+		}
+		
+		padding: @pad;
+		font-size: @body-font-size;
+		
+		h1 {
+			font-family: @display;
+			font-weight: bold;
+			font-size: 28px;
+			text-transform: uppercase;
+			color: @red;
+			.emboss;
+			border-width: 3px;
+			border-color: @red;
+			border-style: none none none solid;
+			margin-top: 30px;
+			margin-bottom: 10px;
+			padding-left: 15px;
+			clear: both;
+			
+			a[name] {
+				border: none;
+			}
+		}
+		
+		ul {
+			list-style-image: url(/media/img/ornament.png);
+			li {
+				margin-left: 40px;
+			}
+		}
+		
+		// home page spacer for above blockquote
+		.main-spacer {
+			height: 200px;
+		}
+		
+		.float-left {
+			float: left;
+			padding: 20px;
+		}
+		
+		.float-right {
+			float: right;
+			padding: 20px;
+		}
+		
+		.bordered {
+			padding: 1px;
+			margin: 18px;
+			border: 1px solid @green;
+		}
+		
+		dt {
+			display: block;
+			clear: both;
+			font-size: larger;
+			font-weight: bold;
+			padding-bottom: 8px;
+			margin-top: 15px;
+			.emboss;
+			font-family: @display;
+		}
+		
+		dd {
+			display: block;
+			clear: both;
+			padding-bottom: 8px;
+			
+			img {
+				.float-right;
+				padding-right: 0px;
+			}
+			
+		}
+		
+		a {
+			color: @red;
+			text-decoration: none;
+			border-color: @red;
+			border-style: dotted;
+			border-width: 0px 0px 1px 0px;
+		}
+		
+		a:hover {
+			border: none;
+		}
+	}
+	
+}
